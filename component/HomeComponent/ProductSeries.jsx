@@ -44,7 +44,7 @@ function ProductSeries() {
                                 <div className="absolute bottom-0 left-0 p-6">
                                     <h3 className="text-white text-2xl font-bold mb-2">Tool Steel Series</h3>
                                     <p className="text-gray-200 mb-4">High hardness, high wear resistance tool steel products</p>
-                                    <Link href="#" className="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded inline-flex items-center">
+                                    <Link href="/products" className="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded inline-flex items-center">
                                         View Details <FontAwesomeIcon icon={faArrowRight} className="h-4 ml-2"/> 
                                     </Link>
                                 </div>
@@ -52,7 +52,7 @@ function ProductSeries() {
                     </div>
 
                     <div className="text-center mt-10">
-                        <Link href="#" className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                        <Link href="/products" className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
                             View All Products <FontAwesomeIcon className="ml-2 h-4" icon={faLongArrowAltRight} />
                         </Link>
                     </div>
