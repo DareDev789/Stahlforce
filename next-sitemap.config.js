@@ -5,12 +5,17 @@ module.exports = {
     changefreq: 'weekly',
     priority: 0.7,
     sitemapSize: 5000,
-    exclude: ['/admin', '/hidden-page'],
-    robotsTxtOptions: {
-      policies: [
-        { userAgent: '*', allow: '/' },
-        { userAgent: '*', disallow: '/admin' },
-      ],
+    // Ajoute les routes manuellement si nécessaire
+    additionalPaths: async (config) => {
+      return [
+        await config.transform(config, '/'),
+        await config.transform(config, '/products'),
+        await config.transform(config, '/precision-product'),
+        await config.transform(config, '/certifications'),
+        await config.transform(config, '/applications'),
+        await config.transform(config, '/about_us'),
+        await config.transform(config, '/contact'),
+      ];
     },
   };
   
