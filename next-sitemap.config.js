@@ -4,7 +4,13 @@ module.exports = {
     generateRobotsTxt: true,
     changefreq: 'weekly',
     priority: 0.7,
-    sitemapSize: 7000,
-    exclude: ['/admin'],
+    sitemapSize: 5000,
+    exclude: ['/admin', '/hidden-page'],
+    robotsTxtOptions: {
+      policies: [
+        { userAgent: '*', allow: '/' },
+        { userAgent: '*', disallow: '/admin' },
+      ],
+    },
   };
   
