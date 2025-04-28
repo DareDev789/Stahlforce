@@ -1,5 +1,4 @@
 import { notFound } from 'next/navigation';
-import { url } from '../../../../../Contexte/UrlApi';
 import axios from 'axios'; import { Metadata } from 'next';
 import AllProducts from '../../../../../component/ProductsComponents/AllProducts';
 
@@ -34,14 +33,13 @@ export default async function ProductsPage(props: PageProps) {
 
   let products: Product[] = [];
   let lastPage = 0;
-  let perPage = 0;
   let totalProduits = 0;
+  const url = "https://backend.stahlforce.eu/api/";
 
   try {
     const response = await axios.get<ProductApiResponse>(`${url}/produits/all?page=${currentPage}`);
     products = response.data.products;
     lastPage = response.data.last_page;
-    perPage = response.data.per_page;
     totalProduits = response.data.total;
   } catch (error) {
     notFound();

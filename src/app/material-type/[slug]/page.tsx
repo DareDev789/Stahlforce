@@ -34,7 +34,6 @@ export default async function ProductsPage(props: CategoriePageProps) {
 
     let products: Product[] = [];
     let lastPage = 0;
-    let perPage = 0;
     let totalProduits = 0;
     const currentPage = 1;
     const url = "https://backend.stahlforce.eu/api/";
@@ -43,7 +42,6 @@ export default async function ProductsPage(props: CategoriePageProps) {
         const response = await axios.get<ProductApiResponse>(`${url}client/categorie/${slug}`);
         products = response.data.products;
         lastPage = response.data.last_page;
-        perPage = response.data.per_page;
         totalProduits = response.data.total;
     } catch (error) {
         console.error('Erreur lors du chargement des produits :', error);
