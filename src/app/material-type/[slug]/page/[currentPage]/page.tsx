@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "Sendbazar - Tous les produits",
+    title: "Stahlforce - Tous les produits",
     description: "Une application qui vous met en relation directe avec les boutiques et vendeurs en Afrique. Peu importe où vous vous trouvez, vous pouvez effectuer vos achats directement chez les commerçants situés dans la ville de vos proches.",
 };
 
@@ -24,7 +24,7 @@ interface ProductApiResponse {
 
 interface CategoriePageProps {
     params: Promise<{
-        categorie: string;
+        slug: string;
         currentPage?: string;
     }>;
 }
@@ -32,12 +32,12 @@ interface CategoriePageProps {
 export default async function ProductsPage(props: CategoriePageProps) {
     const params = await props.params;
     const currentPage = parseInt(params.currentPage || '1', 10);
-    const { categorie } = params;
+    const { slug } = params;
     const url = "https://backend.stahlforce.eu/api/";
 
     try {
         const { data } = await axios.get<ProductApiResponse>(
-            `${url}/categorie_product?categorie=${encodeURIComponent(categorie)}&page=${currentPage}`
+            `${url}client/categorie/${slug}?page=${currentPage}`
         );
 
         return (
@@ -46,7 +46,7 @@ export default async function ProductsPage(props: CategoriePageProps) {
                 currentPage={currentPage}
                 lastPage={data.last_page}
                 totalProduits={data.total}
-                link={`/categorie-produit/${categorie}/`}
+                link={`/material-type/${slug}/`}
             />
         );
     } catch (error) {
