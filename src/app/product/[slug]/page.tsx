@@ -38,7 +38,8 @@ export default async function ProductsPage(props: ProductPageProps) {
   try {
     const response = await axios.get<Product>(`${url}client/products/one/${slug}`); 
     product = response.data;
-  } catch (_) {
+  } catch (error) {
+    console.log(error);
     notFound();
   }
 
