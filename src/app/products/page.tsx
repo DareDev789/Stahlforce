@@ -38,7 +38,8 @@ export default async function ProductsPage() {
 
     console.log("Produits récupérés:", response.data);
 
-  } catch (_) {
+  } catch (error) {
+    console.log(error);
     notFound();
   }
 
