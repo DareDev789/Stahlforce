@@ -10,8 +10,8 @@ function SliderHome() {
                         <h1 className="text-4xl md:text-5xl font-bold mb-4">High-Precision Special Steel<br/>Professional Manufacturer</h1>
                         <p className="text-xl mb-8">Providing custom processing of special steel from 0.02mm ultra-thin to 12mm thickness with high precision</p>
                         <div className="flex flex-wrap gap-4">
-                            <a href="#" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-medium transition">Explore Product Range</a>
-                            <a href="#" className="bg-transparent border-2 border-white text-white px-6 py-3 rounded-md font-medium hover:bg-white hover:text-gray-900 transition">Technical Consultation</a>
+                            <a href="/products" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-medium transition">Explore Product Range</a>
+                            <a href="/contact" className="bg-transparent border-2 border-white text-white px-6 py-3 rounded-md font-medium hover:bg-white hover:text-gray-900 transition">Technical Consultation</a>
                         </div>
                     </div>
                 </div>

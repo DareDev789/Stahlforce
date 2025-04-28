@@ -1,12 +1,8 @@
 import { Metadata } from "next";
 import SliderHome from "../../component/HomeComponent/SliderHome";
 import ProductSeries from "../../component/HomeComponent/ProductSeries";
-// import PrecisionProduct from "../../component/HomeComponent/PrecisionProduct";
-// import ApplicationArea from "../../component/HomeComponent/ApplicationArea";
 import CoreTechnical from "../../component/HomeComponent/CoreTechnical";
 import QuickParameter from "../../component/HomeComponent/QuickParameter";
-// import QualificationsCert from "../../component/HomeComponent/QualificationsCert";
-// import QuickInquiry from "../../component/HomeComponent/QuickInquiry";
 
 export const metadata: Metadata = {
   title: "StahlForce - Home",
@@ -24,21 +20,9 @@ export default function Home() {
         <div id="products">
           <ProductSeries />
         </div>
-        {/* <div id="precision-product">
-          <PrecisionProduct />
-        </div> */}
-        {/* <div id="applications">
-          <ApplicationArea />
-        </div> */}
         <div id="parameters">
           <QuickParameter />
         </div>
-        {/* <div id="certifications">
-          <QualificationsCert />
-        </div> */}
-        {/* <div id="inquiry">
-          <QuickInquiry />
-        </div> */}
       </main>
     </div>
   );

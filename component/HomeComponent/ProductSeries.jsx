@@ -20,7 +20,7 @@ function ProductSeries() {
                                 <div className="absolute bottom-0 left-0 p-6">
                                     <h3 className="text-white text-2xl font-bold mb-2">Stainless Steel Series</h3>
                                     <p className="text-gray-200 mb-4">SUS301/304/430 series, multiple states available</p>
-                                    <Link href="#" className="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded inline-flex items-center">
+                                    <Link href="/material-type/stainless-steel" className="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded inline-flex items-center">
                                         View Details <FontAwesomeIcon icon={faArrowRight} className="h-4 ml-2"/>
                                     </Link>
                                 </div>
@@ -32,7 +32,7 @@ function ProductSeries() {
                                 <div className="absolute bottom-0 left-0 p-6">
                                     <h3 className="text-white text-2xl font-bold mb-2">Alloy Steel Series</h3>
                                     <p className="text-gray-200 mb-4">High-strength alloy steel for critical structural components</p>
-                                    <Link href="#" className="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded inline-flex items-center">
+                                    <Link href="/material-type/alloy-steel-series" className="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded inline-flex items-center">
                                         View Details <FontAwesomeIcon icon={faArrowRight} className="h-4 ml-2"/>
                                     </Link>
                                 </div>
@@ -44,7 +44,7 @@ function ProductSeries() {
                                 <div className="absolute bottom-0 left-0 p-6">
                                     <h3 className="text-white text-2xl font-bold mb-2">Tool Steel Series</h3>
                                     <p className="text-gray-200 mb-4">High hardness, high wear resistance tool steel products</p>
-                                    <Link href="/products" className="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded inline-flex items-center">
+                                    <Link href="/material-type/tool-steel-series" className="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded inline-flex items-center">
                                         View Details <FontAwesomeIcon icon={faArrowRight} className="h-4 ml-2"/> 
                                     </Link>
                                 </div>
