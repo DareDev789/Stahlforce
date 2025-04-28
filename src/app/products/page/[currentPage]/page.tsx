@@ -41,7 +41,7 @@ export default async function ProductsPage(props: PageProps) {
     products = response.data.products;
     lastPage = response.data.last_page;
     totalProduits = response.data.total;
-  } catch (error) {
+  } catch (_) {
     notFound();
   }
 

@@ -26,24 +26,20 @@ interface ProductApiResponse {
 export default async function ProductsPage() {
   let products: Product[] = [];
   let lastPage = 0;
-  let perPage = 0;
   let totalProduits = 0;
-  let currentPage=1;
+  const currentPage=1;
   const url = "https://backend.stahlforce.eu/api/";
 
   try {
     const response = await axios.get<ProductApiResponse>(`${url}client/products/all`);
     products = response.data.products;
     lastPage = response.data.last_page;
-    perPage = response.data.per_page;
     totalProduits = response.data.total;
 
     console.log("Produits récupérés:", response.data);
 
-  } catch (error) {
+  } catch (_) {
     notFound();
-  } finally {
-
   }
 
   return (
