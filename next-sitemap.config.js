@@ -5,7 +5,6 @@ module.exports = {
     changefreq: 'weekly',
     priority: 0.7,
     sitemapSize: 5000,
-    // Ajoute les routes manuellement si nécessaire
     additionalPaths: async (config) => {
       return [
         await config.transform(config, '/'),

@@ -1,0 +1,62 @@
+import { notFound } from 'next/navigation';
+import AllProducts from '../../../../component/ProductsComponents/AllProducts';
+import axios from 'axios';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: "Sendbazar - Tous les produits",
+    description: "une application qui vous met en relation directe avec les boutiques et vendeurs en Afrique. Peu importe où vous vous trouvez, vous pouvez effectuer vos achats directement chez les commerçants situés dans la ville de vos proches",
+};
+
+interface Product {
+    id: number;
+    name: string;
+    price: number;
+    image: string;
+}
+
+interface ProductApiResponse {
+    products: Product[];
+    last_page: number;
+    per_page: number;
+    total: number;
+}
+
+interface CategoriePageProps {
+    params: Promise<{
+        categorie: string;
+    }>;
+}
+
+export default async function ProductsPage(props: CategoriePageProps) {
+    const params = await props.params;
+    const { categorie } = params;
+
+    let products: Product[] = [];
+    let lastPage = 0;
+    let perPage = 0;
+    let totalProduits = 0;
+    const currentPage = 1;
+    const url = "https://backend.stahlforce.eu/api/";
+
+    try {
+        const response = await axios.get<ProductApiResponse>(`${url}/categorie_product?categorie=${categorie}`);
+        products = response.data.products;
+        lastPage = response.data.last_page;
+        perPage = response.data.per_page;
+        totalProduits = response.data.total;
+    } catch (error) {
+        console.error('Erreur lors du chargement des produits :', error);
+        notFound();
+    }
+
+    return (
+        <AllProducts
+            products={products}
+            currentPage={currentPage}
+            lastPage={lastPage}
+            totalProduits={totalProduits}
+            link={`/categorie-produit/${categorie}/`}
+        />
+    );
+}
