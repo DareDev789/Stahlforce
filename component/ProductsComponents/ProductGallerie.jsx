@@ -21,7 +21,7 @@ function ProductGallerie({ images = [] }) {
 
   const currentImage = images.length > 0
     ? `${url}${images[currentIndex].url}`
-    : "/image/exampleFond.jpg";
+    : "/images/exampleFond.jpg";
 
   return (
     <div className="w-full">

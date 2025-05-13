@@ -28,7 +28,7 @@ function ProductCard({ product }) {
                             </>
                         ) : (
                             <img
-                                src={product.gallery_products && product.gallery_products.length === 1 ? `${url}${product?.gallery_products[0]?.url}` : "/image/exampleFond.jpg"}
+                                src={product.gallery_products && product.gallery_products.length === 1 ? `${url}${product?.gallery_products[0]?.url}` : "/images/exampleFond.jpg"}
                                 alt={product.name}
                                 className="w-full h-44 object-cover z-0 absolute top-0 left-0"
                             />
