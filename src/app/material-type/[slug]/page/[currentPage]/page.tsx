@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import AllProducts from '../../../../../../component/ProductsComponents/AllProducts';
-import axios from 'axios';
+import { url } from '../../../../../../Contexte/urlApi';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -36,9 +36,13 @@ export default async function ProductsPage(props: CategoriePageProps) {
     const url = "https://backend.stahlforce.eu/api/";
 
     try {
-        const { data } = await axios.get<ProductApiResponse>(
-            `${url}client/categorie/${slug}?page=${currentPage}`
-        );
+        // const { data } = await axios.get<ProductApiResponse>(
+        //     `${url}client/categorie/${slug}?page=${currentPage}`
+        // );
+        const response = await fetch(`${url}client/categorie/${slug}?page=${currentPage}`, {
+            cache: 'no-store'
+        });
+        const data: ProductApiResponse = await response.json();
 
         return (
             <AllProducts
