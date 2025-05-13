@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import AllProducts from '../../../component/ProductsComponents/AllProducts';
-import axios from "axios";
 import { notFound } from 'next/navigation';
+import { url } from '../../../Contexte/urlApi';
 
 export const metadata: Metadata = {
   title: "Stahlforce - All products",
@@ -28,16 +28,16 @@ export default async function ProductsPage() {
   let lastPage = 0;
   let totalProduits = 0;
   const currentPage=1;
-  const url = "https://backend.stahlforce.eu/api/";
 
   try {
-    const response = await axios.get<ProductApiResponse>(`${url}client/products/all`);
-    products = response.data.products;
-    lastPage = response.data.last_page;
-    totalProduits = response.data.total;
-
-    console.log("Produits récupérés:", response.data);
-
+    // const response = await axios.get<ProductApiResponse>(`${url}client/products/all`);
+    const response = await fetch(`${url}client/products/all`, {
+      cache: 'no-store'
+    });
+    const data: ProductApiResponse = await response.json();
+    products = data.products;
+    lastPage = data.last_page;
+    totalProduits = data.total;
   } catch (error) {
     console.log(error);
     notFound();
