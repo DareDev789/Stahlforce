@@ -33,7 +33,6 @@ export default async function ProductsPage(props: CategoriePageProps) {
     const params = await props.params;
     const currentPage = parseInt(params.currentPage || '1', 10);
     const { slug } = params;
-    const url = "https://backend.stahlforce.eu/api/";
 
     try {
         // const { data } = await axios.get<ProductApiResponse>(
