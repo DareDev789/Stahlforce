@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import AllProducts from '../../../../component/ProductsComponents/AllProducts';
-import axios from 'axios';
+import { url } from '../../../../Contexte/urlApi';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -36,13 +36,17 @@ export default async function ProductsPage(props: CategoriePageProps) {
     let lastPage = 0;
     let totalProduits = 0;
     const currentPage = 1;
-    const url = "https://backend.stahlforce.eu/api/";
 
     try {
-        const response = await axios.get<ProductApiResponse>(`${url}client/categorie/${slug}`);
-        products = response.data.products;
-        lastPage = response.data.last_page;
-        totalProduits = response.data.total;
+        // const response = await axios.get<ProductApiResponse>(`${url}client/categorie/${slug}`);
+        const response = await fetch(`${url}client/categorie/${slug}`, {
+            cache: 'no-store'
+        });
+        const data: ProductApiResponse = await response.json();
+
+        products = data.products;
+        lastPage = data.last_page;
+        totalProduits = data.total;
     } catch (error) {
         console.error('Erreur lors du chargement des produits :', error);
         notFound();

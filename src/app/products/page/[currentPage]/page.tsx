@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import axios from 'axios'; import { Metadata } from 'next';
+import { Metadata } from 'next';
 import AllProducts from '../../../../../component/ProductsComponents/AllProducts';
 import { url } from '../../../../../Contexte/urlApi';
 
