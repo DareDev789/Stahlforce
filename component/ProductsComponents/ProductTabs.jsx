@@ -25,7 +25,7 @@ export default function ProductTabs({ activeTab, setActiveTab, product }) {
                 ))}
             </div>
 
-            <div className="p-4 w-[800px] max-w-full">
+            <div className="p-4 w-[1000px] max-w-full">
                 {activeTab === "description" && (
                     <ProductDescription description={product[0].long_description} />
                 )}
