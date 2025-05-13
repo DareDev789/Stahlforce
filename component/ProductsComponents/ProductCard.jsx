@@ -28,7 +28,7 @@ function ProductCard({ product }) {
                             </>
                         ) : (
                             <img
-                                src={product.gallery_products && product.gallery_products.length === 1 ? `${url}${product?.gallery_products[0]?.url}` : "https://tse4.mm.bing.net/th/id/OIP.T-XhERGkQiBX6hWXPvybVgAAAA?rs=1&pid=ImgDetMain"}
+                                src={product.gallery_products && product.gallery_products.length === 1 ? `${url}${product?.gallery_products[0]?.url}` : "/image/exampleFond.jpg"}
                                 alt={product.name}
                                 className="w-full h-44 object-cover z-0 absolute top-0 left-0"
                             />

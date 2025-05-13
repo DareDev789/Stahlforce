@@ -21,7 +21,7 @@ function ProductGallerie({ images = [] }) {
 
   const currentImage = images.length > 0
     ? `${url}${images[currentIndex].url}`
-    : "https://tse4.mm.bing.net/th/id/OIP.T-XhERGkQiBX6hWXPvybVgAAAA?rs=1&pid=ImgDetMain";
+    : "/image/exampleFond.jpg";
 
   return (
     <div className="w-full">
