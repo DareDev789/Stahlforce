@@ -25,7 +25,7 @@ export default function ProductTabs({ activeTab, setActiveTab, product }) {
                 ))}
             </div>
 
-            <div className="p-4 w-[1000px] max-w-full">
+            <div className="p-4 w-[1000px] max-w-full overflow-auto">
                 {activeTab === "description" && (
                     <ProductDescription description={product[0].long_description} />
                 )}
@@ -44,7 +44,7 @@ export default function ProductTabs({ activeTab, setActiveTab, product }) {
 
 function ProductDescription({ description }) {
     return description ? (
-        <div dangerouslySetInnerHTML={{ __html: description }} />
+        <div className="w-full" dangerouslySetInnerHTML={{ __html: description }} />
     ) : (
         <span className='text-gray-500 text-xs'><i>no description</i></span>
     );

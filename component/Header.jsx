@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 function Header() {
+    const [miniNavBarShow, setminiNavBarShow] = useState(false);
     return (
         <>
             <div className="bg-gray-800 text-white py-2 px-4 text-sm">
@@ -27,7 +28,7 @@ function Header() {
                                 <img src="/images/logoStahlForceB.png" alt="Stahlforce" className="h-[40px] w-auto" />
                             </Link>
                         </div>
-                        <div className="hidden md:flex space-x-8 text-gray-700 list-none">
+                        <div className="hidden md:flex space-x-4 text-gray-700 list-none">
                             <Link href="/" >Home</Link>
                             <Link href="/products">Products</Link>
                             <Link href="/precision-product">Production Capabilities</Link>
@@ -37,11 +38,29 @@ function Header() {
                             <Link href="/contact">Contact</Link>
                         </div>
                         <div className="w-8 flex md:hidden">
-                            <FontAwesomeIcon className="text-gray-700 h-5" icon={faBars} />
+                            <FontAwesomeIcon className="text-gray-700 h-5" icon={faBars} onClick={()=>setminiNavBarShow(!miniNavBarShow)}/>
                         </div>
                     </div>
                 </div>
             </nav>
+            {miniNavBarShow && (
+                <>
+                    <div className="fixed md:hidden top-0 right-0 h-screen w-[500px] max-w-full p-4 bg-white z-50">
+                        <div className="w-8">
+                            <FontAwesomeIcon className="text-red-700 h-5" icon={faXmark} onClick={()=>setminiNavBarShow(!miniNavBarShow)}/>
+                        </div>
+                        <div className="space-y-4 text-gray-700 list-none">
+                            <Link href="/" >Home</Link>
+                            <Link href="/products">Products</Link>
+                            <Link href="/precision-product">Production Capabilities</Link>
+                            <Link href="/certifications">Technical Center</Link>
+                            <Link href="/applications">Applications</Link>
+                            <Link href="/about_us">About Us</Link>
+                            <Link href="/contact">Contact</Link>
+                        </div>
+                    </div>
+                </>
+            )}
         </>
     );
 }
