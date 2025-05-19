@@ -51,13 +51,13 @@ function Header() {
                             <FontAwesomeIcon className="text-red-700 h-5 cursor-pointer" icon={faXmark} onClick={()=>setminiNavBarShow(!miniNavBarShow)}/>
                         </div>
                         <div className="space-y-4 text-gray-700 list-none">
-                            <li><Link href="/" >Home</Link></li>
-                            <li><Link href="/products">Products</Link></li>
-                            <li><Link href="/precision-product">Production Capabilities</Link></li>
-                            <li><Link href="/certifications">Technical Center</Link></li>
-                            <li><Link href="/applications">Applications</Link></li>
-                            <li><Link href="/about_us">About Us</Link></li>
-                            <li><Link href="/contact">Contact</Link></li>
+                            <li><Link href="/" onClick={()=>setminiNavBarShow(!miniNavBarShow)}>Home</Link></li>
+                            <li><Link href="/products" onClick={()=>setminiNavBarShow(!miniNavBarShow)}>Products</Link></li>
+                            <li><Link href="/precision-product" onClick={()=>setminiNavBarShow(!miniNavBarShow)}>Production Capabilities</Link></li>
+                            <li><Link href="/certifications" onClick={()=>setminiNavBarShow(!miniNavBarShow)}>Technical Center</Link></li>
+                            <li><Link href="/applications" onClick={()=>setminiNavBarShow(!miniNavBarShow)}>Applications</Link></li>
+                            <li><Link href="/about_us" onClick={()=>setminiNavBarShow(!miniNavBarShow)}>About Us</Link></li>
+                            <li><Link href="/contact" onClick={()=>setminiNavBarShow(!miniNavBarShow)}>Contact</Link></li>
                         </div>
                     </div>
                 </>
