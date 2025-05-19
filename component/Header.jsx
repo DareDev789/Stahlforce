@@ -51,13 +51,13 @@ function Header() {
                             <FontAwesomeIcon className="text-red-700 h-5" icon={faXmark} onClick={()=>setminiNavBarShow(!miniNavBarShow)}/>
                         </div>
                         <div className="space-y-4 text-gray-700 list-none">
-                            <Link href="/" >Home</Link>
-                            <Link href="/products">Products</Link>
-                            <Link href="/precision-product">Production Capabilities</Link>
-                            <Link href="/certifications">Technical Center</Link>
-                            <Link href="/applications">Applications</Link>
-                            <Link href="/about_us">About Us</Link>
-                            <Link href="/contact">Contact</Link>
+                            <li><Link href="/" >Home</Link></li>
+                            <li><Link href="/products">Products</Link></li>
+                            <li><Link href="/precision-product">Production Capabilities</Link></li>
+                            <li><Link href="/certifications">Technical Center</Link></li>
+                            <li><Link href="/applications">Applications</Link></li>
+                            <li><Link href="/about_us">About Us</Link></li>
+                            <li><Link href="/contact">Contact</Link></li>
                         </div>
                     </div>
                 </>
