@@ -39,7 +39,7 @@ function Header() {
                             <Link href="/contact">Contact</Link>
                         </div>
                         <div className="w-8 flex md:hidden">
-                            <FontAwesomeIcon className="text-gray-700 h-5" icon={faBars} onClick={()=>setminiNavBarShow(!miniNavBarShow)}/>
+                            <FontAwesomeIcon className="text-gray-700 h-5 cursor-pointer" icon={faBars} onClick={()=>setminiNavBarShow(!miniNavBarShow)}/>
                         </div>
                     </div>
                 </div>
@@ -47,8 +47,8 @@ function Header() {
             {miniNavBarShow && (
                 <>
                     <div className="fixed md:hidden top-0 right-0 h-screen w-[500px] max-w-full p-4 bg-white z-50">
-                        <div className="w-8">
-                            <FontAwesomeIcon className="text-red-700 h-5" icon={faXmark} onClick={()=>setminiNavBarShow(!miniNavBarShow)}/>
+                        <div className="w-8 mb-4">
+                            <FontAwesomeIcon className="text-red-700 h-5 cursor-pointer" icon={faXmark} onClick={()=>setminiNavBarShow(!miniNavBarShow)}/>
                         </div>
                         <div className="space-y-4 text-gray-700 list-none">
                             <li><Link href="/" >Home</Link></li>
