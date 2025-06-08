@@ -4,8 +4,8 @@ import { notFound } from 'next/navigation';
 import { url } from '../../../Contexte/urlApi';
 
 export const metadata: Metadata = {
-  title: "Stahlforce - All products",
-  description: "une application qui vous met en relation directe avec les boutiques et vendeurs en Afrique. Peu importe où vous vous trouvez, vous pouvez effectuer vos achats directement chez les commerçants situés dans la ville de vos proches",
+  title: "All products - Stahlforce",
+  description: "High-Precision Special Steel products",
 };
 
 interface Product {
