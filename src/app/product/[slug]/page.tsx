@@ -3,40 +3,48 @@ import FicheProduit from '../../../../component/ProductsComponents/FicheProduit'
 import axios from 'axios';
 import { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: "Stahlforce - Tous les produits",
-  description: "une application qui vous met en relation directe avec les boutiques et vendeurs en Afrique. Peu importe où vous vous trouvez, vous pouvez effectuer vos achats directement chez les commerçants situés dans la ville de vos proches",
-};
-
 interface Product {
   id: number;
-  title: string;
+  name: string;
   slug: string;
-  type: 'simple' | 'variable';
-  price: number | { min: number; max: number };
-  sale_price?: number;
-  regular_price?: number;
-  currency: string;
-  description: string;
-  isInStock: boolean;
+  short_description: string;
   images?: string[];
-  
 }
 
 interface ProductPageProps {
-  params: Promise<{
+  params: {
     slug: string;
-  }>;
+  };
 }
 
-export default async function ProductsPage(props: ProductPageProps) {
-  const params = await props.params;
-  const slug = params.slug;
+const url = 'https://backend.stahlforce.eu/api/';
+
+export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
+  function stripHtmlTags(html: string): string {
+    if (!html) return '';
+    return html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+  }
+  try {
+    const response = await axios.get<Product>(`${url}client/products/one/${params.slug}`);
+    const product = response.data;
+    const cleanDescription = stripHtmlTags(product.short_description)?.slice(0, 160);
+    return {
+      title: `${product.name} - Stahlforce`,
+      description: cleanDescription || 'Discover our products in specialized steels and high-performance alloys.',
+    };
+  } catch (error) {
+    return {
+      title: 'Product not found - Stahlforce',
+      description: 'This product could not be found.',
+    };
+  }
+}
+
+export default async function ProductsPage({ params }: ProductPageProps) {
   let product: Product;
-  const url = "https://backend.stahlforce.eu/api/";
 
   try {
-    const response = await axios.get<Product>(`${url}client/products/one/${slug}`); 
+    const response = await axios.get<Product>(`${url}client/products/one/${params.slug}`);
     product = response.data;
   } catch (error) {
     console.log(error);
@@ -45,7 +53,7 @@ export default async function ProductsPage(props: ProductPageProps) {
 
   return (
     <>
-      <FicheProduit product={product}/>
+      <FicheProduit product={product} />
     </>
   );
 }

@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 function ProductGallerie({ images = [] }) {
+  console.log(images);
   const [currentIndex, setCurrentIndex] = useState(0);
   const url = "https://backend.stahlforce.eu";
 
@@ -59,7 +60,7 @@ function ProductGallerie({ images = [] }) {
           {images.map((img, index) => (
             <img
               key={index}
-              src={img}
+              src={`${url}/${img?.url}`}
               alt={`Miniature ${index + 1}`}
               className={`w-16 h-16 object-cover rounded cursor-pointer border-2 transition duration-200 ${
                 currentIndex === index ? 'border-blue-500' : 'border-transparent'

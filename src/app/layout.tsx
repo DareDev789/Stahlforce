@@ -2,6 +2,7 @@
 import "./globals.css";
 import Header from "../../component/Header";
 import Footer from "../../component/Footer";
+import NextTopLoader from 'nextjs-toploader';
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -23,9 +24,13 @@ export default function RootLayout({
       <body
         className={`bg-white`}
       >
-        <Header/>
+        <NextTopLoader
+          color="#29d"
+          height={4}
+        />
+        <Header />
         {children}
-        <Footer/>
+        <Footer />
       </body>
     </html>
   );

@@ -16,8 +16,7 @@ function FicheProduit({ product }) {
     // const [selectedVariation, setSelectedVariation] = useState(null);
     // const [quantity, setQuantity] = useState(1);
 
-    const currentImages = product[0].gallery_products;
-
+    const currentImages = product.gallery_products;
     return (
         <div className="py-6 container mx-auto">
             <div className="grid md:grid-cols-2 gap-6 w-[1200px] max-w-full mx-auto px-4">
@@ -26,10 +25,10 @@ function FicheProduit({ product }) {
                 </div>
 
                 <div className="flex-1">
-                    <h1 className="text-2xl font-bold">{product[0].name}</h1>
-                    <div className="mb-2" dangerouslySetInnerHTML={{ __html: product[0].short_description }} />
+                    <h1 className="text-2xl font-bold">{product.name}</h1>
+                    <div className="mb-2" dangerouslySetInnerHTML={{ __html: product.short_description }} />
                     <h3 className="text-xs text-gray-500">
-                        <b>Material Type : </b>{product[0].material_type.title}
+                        <b>Material Type : </b>{product.material_type.title}
                     </h3>
 
                     {/* <AjouterCart

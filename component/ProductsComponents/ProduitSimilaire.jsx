@@ -7,10 +7,10 @@ function ProduitSimilaire({ product }) {
     const [products, setProducts] = useState([]);
 
     const url = "https://backend.stahlforce.eu/api/";
+
     const getSimilaryProduct = async () => {
         try {
-            const response = await fetch(`${url}client/products/similary/${product[0].id}`);
-            console.log(response);
+            const response = await fetch(`${url}client/products/similary/${product.id}`);
             const data = await response.json();
             setProducts(data);
         } catch (error) {
@@ -19,10 +19,10 @@ function ProduitSimilaire({ product }) {
     };
 
     useEffect(() => {
-        if (product[0].id) {
+        if (product.id) {
             getSimilaryProduct();
         }
-    }, [product[0].id]);
+    }, [product.id]);
 
     return (
         <>
