@@ -27,7 +27,7 @@ export async function generateMetadata(props: ProductPageProps) {
     return html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
   }
   try {
-    const response = await axios.get<Product>(`${url}client/products/one/${params.slug}`);
+    const response = await axios.get<Product>(`${url}client/products/one/${slug}`);
     const product = response.data;
     const cleanDescription = stripHtmlTags(product.short_description)?.slice(0, 160);
     return {
@@ -50,7 +50,7 @@ export default async function ProductsPage(props: ProductPageProps) {
   let product: Product;
 
   try {
-    const response = await axios.get<Product>(`${url}client/products/one/${params.slug}`);
+    const response = await axios.get<Product>(`${url}client/products/one/${slug}`);
     product = response.data;
   } catch (error) {
     console.log(error);
