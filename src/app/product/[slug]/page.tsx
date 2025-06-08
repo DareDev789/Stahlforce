@@ -19,7 +19,7 @@ interface ProductPageProps {
 
 const url = 'https://backend.stahlforce.eu/api/';
 
-export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: ProductPageProps) {
   function stripHtmlTags(html: string): string {
     if (!html) return '';
     return html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
