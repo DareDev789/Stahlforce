@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation';
 import FicheProduit from '../../../../component/ProductsComponents/FicheProduit';
 import axios from 'axios';
-import { Metadata } from 'next';
 
 interface Product {
   id: number;
