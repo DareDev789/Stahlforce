@@ -31,6 +31,7 @@ export default function AboutUs() {
               automotive, electronics, home appliances, instrumentation, and defense industries.
             </p>
 
+            {/* eslint-disable-next-line react/no-unescaped-entities */}
             <p>
               Our business model integrates an "innovation center + industrial base" approach, where cutting-edge
               technological research directly drives the production of superior materials. This symbiotic relationship

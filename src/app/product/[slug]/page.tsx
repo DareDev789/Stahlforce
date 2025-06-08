@@ -33,6 +33,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
       description: cleanDescription || 'Discover our products in specialized steels and high-performance alloys.',
     };
   } catch (error) {
+    console.log(error);
     return {
       title: 'Product not found - Stahlforce',
       description: 'This product could not be found.',
