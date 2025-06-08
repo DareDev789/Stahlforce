@@ -11,14 +11,17 @@ interface Product {
 }
 
 interface ProductPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 const url = 'https://backend.stahlforce.eu/api/';
 
-export async function generateMetadata({ params }: ProductPageProps) {
+export async function generateMetadata(props: ProductPageProps) {
+  const params = await props.params;
+  const slug = params.slug;
+
   function stripHtmlTags(html: string): string {
     if (!html) return '';
     return html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
@@ -40,7 +43,10 @@ export async function generateMetadata({ params }: ProductPageProps) {
   }
 }
 
-export default async function ProductsPage({ params }: ProductPageProps) {
+export default async function ProductsPage(props: ProductPageProps) {
+  const params = await props.params;
+  const slug = params.slug;
+
   let product: Product;
 
   try {
