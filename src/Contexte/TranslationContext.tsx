@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext } from 'react';
 import axios from 'axios';
 
 // const API_URL = "https://libretranslate.com"; // API publique
