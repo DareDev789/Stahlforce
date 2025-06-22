@@ -6,6 +6,7 @@ import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
 import { useEffect, useState } from "react";
 import axios from 'axios';
+import TranslatedText from '../TranslatedText';
 
 const API_URL = "https://backend.stahlforce.eu/api/client/";
 
@@ -54,18 +55,18 @@ function AllProducts({ products, currentPage, lastPage, totalProduits, link }) {
             <div className="flex gap-6">
                 {/* Sidebar */}
                 <aside className="hidden md:block w-64 bg-gray-100 p-4 rounded-lg shadow">
-                    <h2 className="text-lg font-semibold mb-4">All Categories</h2>
+                    <h2 className="text-lg font-semibold mb-4"><TranslatedText text="All Categories"/></h2>
                     {loading ? (
-                        <p>Loading categories...</p>
+                        <p><TranslatedText text="Loading categories..."/></p>
                     ) : error ? (
-                        <p>Failed to load categories.</p>
+                        <p><TranslatedText text="Failed to load categories."/></p>
                     ) : (
                         <ul>
                             {data.materialType.map((material) => (
                                 <li key={material.id}>
                                     <Link href={`/material-type/${material.name}`}>
                                         <div className="px-2 py-1 mb-2 hover:bg-gray-200">
-                                            {material.title}
+                                            <TranslatedText text={`${material.title}`}/>
                                         </div>
                                     </Link>
                                 </li>
@@ -77,7 +78,7 @@ function AllProducts({ products, currentPage, lastPage, totalProduits, link }) {
                 {/* Main Content */}
                 <div className="flex-1">
                     <span className="text-sm mb-4 text-[#f5848c] font-semibold">
-                        Showing {pagination.from} – {pagination.to} of {totalProduits} results
+                        <TranslatedText text={`Showing ${pagination.from} – ${pagination.to} of ${totalProduits} results`}/>
                     </span>
 
                     <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 min-h-[80vh] mt-2">
@@ -96,7 +97,7 @@ function AllProducts({ products, currentPage, lastPage, totalProduits, link }) {
                                 <FontAwesomeIcon icon={faAngleLeft} className="h-4" />
                             </Link>
                         )}
-                        <span>Page {currentPage} of {lastPage}</span>
+                        <span><TranslatedText text={`Page ${currentPage} of ${lastPage}`}/></span>
                         {currentPage < lastPage && (
                             <Link
                                 href={`${link}page/${currentPage + 1}`}

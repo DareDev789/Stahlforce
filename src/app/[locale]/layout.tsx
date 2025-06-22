@@ -1,8 +1,9 @@
 // import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import Header from "../../component/Header";
 import Footer from "../../component/Footer";
 import NextTopLoader from 'nextjs-toploader';
+import { TranslationProvider } from '../../Contexte/TranslationContext';
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -16,11 +17,13 @@ import NextTopLoader from 'nextjs-toploader';
 
 export default function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: { locale: string };
 }>) {
   return (
-    <html lang="fr">
+    <html lang={params.locale}>
       <body
         className={`bg-white`}
       >
@@ -28,9 +31,12 @@ export default function RootLayout({
           color="#29d"
           height={4}
         />
-        <Header />
-        {children}
-        <Footer />
+        <TranslationProvider locale={params.locale}>
+          <Header />
+          {children}
+          <Footer />
+        </TranslationProvider>
+
       </body>
     </html>
   );

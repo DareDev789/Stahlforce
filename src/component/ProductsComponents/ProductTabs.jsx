@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import TranslatedText from '../TranslatedText';
 
 export default function ProductTabs({ activeTab, setActiveTab, product }) {
     const tabs = [
@@ -20,7 +21,7 @@ export default function ProductTabs({ activeTab, setActiveTab, product }) {
                         }`}
                         onClick={() => setActiveTab(tab.id)}
                     >
-                        {tab.label}
+                        <TranslatedText text={`${tab.label}`}/>
                     </button>
                 ))}
             </div>
@@ -44,9 +45,9 @@ export default function ProductTabs({ activeTab, setActiveTab, product }) {
 
 function ProductDescription({ description }) {
     return description ? (
-        <div className="w-full" dangerouslySetInnerHTML={{ __html: description }} />
+        <TranslatedText text={`${description} `} format="html"/>
     ) : (
-        <span className='text-gray-500 text-xs'><i>no description</i></span>
+        <span className='text-gray-500 text-xs'><i><TranslatedText text={`no description`}/></i></span>
     );
 }
 

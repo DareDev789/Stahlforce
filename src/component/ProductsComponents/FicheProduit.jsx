@@ -10,6 +10,7 @@ import ProduitSimilaire from './ProduitSimilaire';
 // import StockStatus from "./StockStatus";
 // import ProductMeta from "./ProductMeta";
 import ProductTabs from "./ProductTabs";
+import TranslatedText from '../TranslatedText';
 
 function FicheProduit({ product }) {
     const [activeTab, setActiveTab] = useState("description");
@@ -25,10 +26,10 @@ function FicheProduit({ product }) {
                 </div>
 
                 <div className="flex-1">
-                    <h1 className="text-2xl font-bold">{product.name}</h1>
-                    <div className="mb-2" dangerouslySetInnerHTML={{ __html: product.short_description }} />
+                    <h1 className="text-2xl font-bold"><TranslatedText text={`${product.name}`}/></h1>
+                    <TranslatedText text={`${product.short_description} `} format='html'/>
                     <h3 className="text-xs text-gray-500">
-                        <b>Material Type : </b>{product.material_type.title}
+                        <b><TranslatedText text={`Material Type :`}/> </b><TranslatedText text={`${product.material_type.title}`}/>
                     </h3>
 
                     {/* <AjouterCart

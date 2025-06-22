@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import TranslatedText from '../TranslatedText';
 
 
 function ProductCard({ product }) {
@@ -9,7 +10,7 @@ function ProductCard({ product }) {
             <Link href={`/product/${product.title}`}>
                 <div className="group relative hover:shadow p-2 flex flex-col hover:scale-105 transition-all">
                     {product.sale_price && (
-                        <div className="uppercase bg-[#3CC9C9] text-sm absolute rounded-sm px-3 py-1 text-white font-semibold z-10 top-1 right-0">Solde</div>
+                        <div className="uppercase bg-[#3CC9C9] text-sm absolute rounded-sm px-3 py-1 text-white font-semibold z-10 top-1 right-0"><TranslatedText text={`Solde`}/></div>
                     )}
 
                     <div className="relative overflow-hidden w-full h-44 cursor-pointer transition-all duration-300">
@@ -35,14 +36,14 @@ function ProductCard({ product }) {
                         )}
                     </div>
 
-                    <h2 className="text-center text-black text-sm font-semibold">{product.name}</h2>
+                    <h2 className="text-center text-black text-sm font-semibold"><TranslatedText text={`${product.name}`}/></h2>
                     <h3 className="text-center text-xs text-gray-500">
-                        {product.material_type.title}
+                        <TranslatedText text={`${product.material_type.title}`}/>
                     </h3>
 
                     <div className="text-center mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <button className="bg-blue-600 hover:bg-blue-700 text-white text-sm py-2 px-4 rounded w-full cursor-pointer">
-                            Quick View
+                            <TranslatedText text={`Quick View`}/>
                         </button>
                     </div>
                 </div>

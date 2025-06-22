@@ -2,6 +2,7 @@ import { faEnvelopeOpen, faMapMarker, faPhone } from "@fortawesome/free-solid-sv
 import { faLinkedin, faTwitter, faFacebook, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
+import TranslatedText from './TranslatedText';
 
 function Footer() {
     return (
@@ -11,7 +12,7 @@ function Footer() {
                     <div className="grid md:grid-cols-4 grid-cols-1 gap-8 mb-8">
                         <div>
                             <img src="/images/logoStahlForceW.png" alt="stahlforce" className="h-[40px] w-auto" />
-                            <p className="mb-4">Stahlforce is a leading manufacturer of high-precision special steel, focusing on material solutions for aerospace, automotive, medical and other high-end industries.</p>
+                            <p className="mb-4"><TranslatedText text={`Stahlforce is a leading manufacturer of high-precision special steel, focusing on material solutions for aerospace, automotive, medical and other high-end industries.`}/></p>
                             <div className="flex space-x-4">
                                 <Link href="#" className="text-gray-400 hover:text-white"><FontAwesomeIcon className="h-4" icon={faLinkedin}/></Link>
                                 <Link href="#" className="text-gray-400 hover:text-white"><FontAwesomeIcon className="h-4" icon={faTwitter}/></Link>
@@ -21,29 +22,29 @@ function Footer() {
                         </div>
 
                         <div>
-                            <h4 className="text-white text-lg font-medium mb-4">Products</h4>
+                            <h4 className="text-white text-lg font-medium mb-4"><TranslatedText text={`Products`}/></h4>
                             <ul className="space-y-2">
-                                <li><Link href="#" className="hover:text-white">Stainless Steel Series</Link></li>
-                                <li><Link href="#" className="hover:text-white">Alloy Steel Series</Link></li>
-                                <li><Link href="#" className="hover:text-white">Tool Steel Series</Link></li>
-                                <li><Link href="#" className="hover:text-white">Ultra-thin Materials</Link></li>
-                                <li><Link href="#" className="hover:text-white">High-precision Materials</Link></li>
+                                <li><Link href="#" className="hover:text-white"><TranslatedText text={`Stainless Steel Series`}/></Link></li>
+                                <li><Link href="#" className="hover:text-white"><TranslatedText text={`Alloy Steel Series`}/></Link></li>
+                                <li><Link href="#" className="hover:text-white"><TranslatedText text={`Tool Steel Series`}/></Link></li>
+                                <li><Link href="#" className="hover:text-white"><TranslatedText text={`Ultra-thin Materials`}/></Link></li>
+                                <li><Link href="#" className="hover:text-white"><TranslatedText text={`High-precision Materials`}/></Link></li>
                             </ul>
                         </div>
 
                         <div>
-                            <h4 className="text-white text-lg font-medium mb-4">Technology &amp; Services</h4>
+                            <h4 className="text-white text-lg font-medium mb-4"><TranslatedText text={`Technology &amp; Services`}/></h4>
                             <ul className="space-y-2">
-                                <li><Link href="#" className="hover:text-white">Production Capabilities</Link></li>
-                                <li><Link href="#" className="hover:text-white">Technical Center</Link></li>
-                                <li><Link href="#" className="hover:text-white">Applications</Link></li>
-                                <li><Link href="#" className="hover:text-white">Technical Support</Link></li>
-                                <li><Link href="#" className="hover:text-white">Quality Control</Link></li>
+                                <li><Link href="#" className="hover:text-white"><TranslatedText text={`Production Capabilities`}/></Link></li>
+                                <li><Link href="#" className="hover:text-white"><TranslatedText text={`Technical Center`}/></Link></li>
+                                <li><Link href="#" className="hover:text-white"><TranslatedText text={`Applications`}/></Link></li>
+                                <li><Link href="#" className="hover:text-white"><TranslatedText text={`Technical Support`}/></Link></li>
+                                <li><Link href="#" className="hover:text-white"><TranslatedText text={`Quality Control`}/></Link></li>
                             </ul>
                         </div>
 
                         <div>
-                            <h4 className="text-white text-lg font-medium mb-4">Contact Us</h4>
+                            <h4 className="text-white text-lg font-medium mb-4"><TranslatedText text={`Contact Us`}/></h4>
                             <ul className="space-y-3">
                                 <li className="flex items-start">
                                     <FontAwesomeIcon icon={faMapMarker} className="mr-3 h-4" />
@@ -63,11 +64,11 @@ function Footer() {
 
                     <div className="border-t border-gray-800 pt-8">
                         <div className="flex flex-col md:flex-row justify-between items-center">
-                            <p>© 2025 Stahlforce. All Rights Reserved.</p>
+                            <p><TranslatedText text={`© 2025 Stahlforce. All Rights Reserved.`}/></p>
                             <div className="flex space-x-6 mt-4 md:mt-0">
-                                <Link href="#" className="hover:text-white">Privacy Policy</Link>
-                                <Link href="#" className="hover:text-white">Terms of Use</Link>
-                                <Link href="#" className="hover:text-white">Sitemap</Link>
+                                <Link href="#" className="hover:text-white"><TranslatedText text={`Privacy Policy`}/></Link>
+                                <Link href="#" className="hover:text-white"><TranslatedText text={`Terms of Use`}/></Link>
+                                <Link href="#" className="hover:text-white"><TranslatedText text={`Sitemap`}/></Link>
                             </div>
                         </div>
                     </div>
