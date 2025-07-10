@@ -26,13 +26,13 @@ function Header() {
             <div className="bg-gray-800 text-white py-2 px-4 text-sm">
                 <div className="container mx-auto flex justify-between items-center">
                     <div className="flex items-center space-x-4">
-                        <span><i className="fas fa-phone-alt mr-1"></i> xxxx</span>
+                        <span><i className="fas fa-phone-alt mr-1"></i> +34 676336617</span>
                         <span><i className="fas fa-envelope mr-1"></i> info@stahlforce.com</span>
                     </div>
-                    <div className="flex items-center space-x-3">
-                        <Link onClick={() => setStorage('zh')} href="#" className="hover:text-blue-300">中文</Link>
+                    <div className="flex items-center space-x-3 list-none">
+                        <li onClick={() => setStorage('zh')} className="hover:text-blue-300">中文</li>
                         <span>|</span>
-                        <Link onClick={() => setStorage('en')} href="#" className="hover:text-blue-300">English</Link>
+                        <li onClick={() => setStorage('en')} className="hover:text-blue-300">English</li>
                     </div>
                 </div>
             </div>

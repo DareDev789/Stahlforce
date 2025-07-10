@@ -5,7 +5,7 @@ import CoreTechnical from "../../component/HomeComponent/CoreTechnical";
 import QuickParameter from "../../component/HomeComponent/QuickParameter";
 
 export const metadata: Metadata = {
-  title: "Home - Stahlforce",
+  title: "Providing customized solutions for aerospace, automotive, medical and other - Stahlforce",
   description: "Focused on high-precision special steel R&D and production for 20 years, providing customized solutions for aerospace, automotive, medical and other",
 };
 
