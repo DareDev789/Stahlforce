@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://www.stahlforce.eu
-
-# Sitemaps
-Sitemap: https://www.stahlforce.eu/sitemap.xml

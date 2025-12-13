@@ -1,5 +1,6 @@
 // import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
+import { ReactNode } from "react";
 import Header from "../../component/Header";
 import Footer from "../../component/Footer";
 import NextTopLoader from 'nextjs-toploader';
@@ -15,15 +16,23 @@ import { TranslationProvider } from '../../Contexte/TranslationContext';
 //   subsets: ["latin"],
 // });
 
-export default function RootLayout({
+export const metadata = {
+  icons: {
+    icon: "/favicon.ico",
+  },
+};
+
+export default async function RootLayout({
   children,
   params,
-}: Readonly<{
-  children: React.ReactNode;
-  params: { locale: string };
-}>) {
+}: {
+  children: ReactNode;
+  params: Promise<{ locale: string }>;
+}) {
+
+  const { locale } = await params;
   return (
-    <html lang={params.locale}>
+    <html lang={locale}>
       <body
         className={`bg-white`}
       >
@@ -31,7 +40,7 @@ export default function RootLayout({
           color="#29d"
           height={4}
         />
-        <TranslationProvider locale={params.locale}>
+        <TranslationProvider locale={locale}>
           <Header />
           {children}
           <Footer />
