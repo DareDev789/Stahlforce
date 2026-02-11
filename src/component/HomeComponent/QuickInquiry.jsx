@@ -37,7 +37,7 @@ function QuickInquiry() {
       setLoading(true);
 
       // axios -> data est déjà parsé JSON
-      const { data } = await axios.post(`${url}/contact`, formData, {
+      const { data } = await axios.post(`${url}contact`, formData, {
         headers: { "Content-Type": "application/json" },
       });
 
