@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import TranslatedText from "../TranslatedText";
-import { url } from '../../../../../Contexte/urlApi';
+import { url } from '../../Contexte/urlApi.js';
 
 function QuickInquiry() {
   const [formData, setFormData] = useState({
