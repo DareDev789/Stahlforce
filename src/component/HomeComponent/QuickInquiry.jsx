@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import axios from "axios";
 import TranslatedText from "../TranslatedText";
-import { url } from '../../Contexte/urlApi.js';
+import { url } from "../../Contexte/urlApi.js";
 
 function QuickInquiry() {
   const [formData, setFormData] = useState({
@@ -19,18 +20,14 @@ function QuickInquiry() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     setMessage(null);
 
-    // Validation simple
+    // Validation simple front
     if (!formData.name || !formData.email || !formData.requirements) {
       setMessage("Please fill all required fields.");
       return;
@@ -39,23 +36,18 @@ function QuickInquiry() {
     try {
       setLoading(true);
 
-      const res = await fetch(`${url}/contact`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
+      // axios -> data est déjà parsé JSON
+      const { data } = await axios.post(`${url}/contact`, formData, {
+        headers: { "Content-Type": "application/json" },
       });
 
-      const data = await res.json();
-
-      if (!res.ok) {
-        throw new Error(data.message || "Something went wrong");
+      // si ton backend renvoie success/message:
+      if (data?.success === false) {
+        throw new Error(data?.message || "Something went wrong");
       }
 
-      setMessage("Inquiry sent successfully!");
+      setMessage(data?.message || "Inquiry sent successfully!");
 
-      // Reset form
       setFormData({
         name: "",
         company: "",
@@ -63,8 +55,15 @@ function QuickInquiry() {
         phone: "",
         requirements: "",
       });
-    } catch (error) {
-      setMessage(error.message);
+    } catch (err) {
+      // Laravel validation errors -> err.response.data.errors
+      const apiMsg =
+        err?.response?.data?.message ||
+        (err?.response?.data?.errors
+          ? Object.values(err.response.data.errors).flat().join(" ")
+          : null);
+
+      setMessage(apiMsg || err.message || "An error occurred.");
     } finally {
       setLoading(false);
     }
@@ -81,6 +80,7 @@ function QuickInquiry() {
             <p className="text-xl mb-8">
               <TranslatedText text="Our engineering team is ready to provide professional answers and customized solutions" />
             </p>
+
             <div className="flex flex-wrap gap-4">
               <Link
                 href="#"
@@ -113,7 +113,7 @@ function QuickInquiry() {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full border text-gray-900 border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
 
@@ -126,7 +126,7 @@ function QuickInquiry() {
                     name="company"
                     value={formData.company}
                     onChange={handleChange}
-                    className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full border text-gray-900 border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
               </div>
@@ -141,7 +141,7 @@ function QuickInquiry() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full border text-gray-900 border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
 
@@ -154,7 +154,7 @@ function QuickInquiry() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full border text-gray-900 border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
               </div>
@@ -168,8 +168,8 @@ function QuickInquiry() {
                   name="requirements"
                   value={formData.requirements}
                   onChange={handleChange}
-                  className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                ></textarea>
+                  className="w-full border text-gray-900 border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
               </div>
 
               {message && (
