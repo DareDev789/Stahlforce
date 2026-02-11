@@ -50,7 +50,7 @@ function Footer() {
                             <ul className="space-y-3">
                                 <li className="flex items-start">
                                     <FontAwesomeIcon icon={faMapMarker} className="mr-3 h-4" />
-                                    <span>xxxxxx</span>
+                                    <span>Zaragoza, Spain</span>
                                 </li>
                                 <li className="">
                                     <div className="flex items-center">
@@ -62,7 +62,7 @@ function Footer() {
                                 </li>
                                 <li className="flex items-center">
                                     <FontAwesomeIcon icon={faEnvelopeOpen} className="mr-3 h-4" />
-                                    <span>info@stahlforce.com</span>
+                                    <span>info@stahlforce.eu</span>
                                 </li>
                             </ul>
                         </div>
